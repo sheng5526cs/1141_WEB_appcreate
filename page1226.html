@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page1226課堂練習</title>
+    <link rel="stylesheet" href="./MYstyle.css">
+    <style>
+        h2 {
+            height: 40px;
+            background-color: rgb(128, 178, 201);
+            color: #333;
+            opacity: 0.7;
+            transition: background-color 2s steps(10) 0.5s, color 2s steps(10) 0.5s, height 2s steps(10) 0.5s, opacity 2s steps(10) 0.5s;
+        }
+        h2:hover {
+            background-color: rgb(162, 108, 124);
+            color: rgb(211, 168, 203);
+            height: 300px;
+            opacity: 1;
+        }
+        input[type="text"] {
+            width: 100px;
+            transition: width 1s, background-color 1s;
+        }
+        input[type="text"]:focus {
+            width: 300px;
+            background-color: rgb(229, 219, 157);
+        }
+        button[type="button"] {
+            transition: width 0.5s, height 0.5s, background-color 0.5s;
+        }
+        button[type="button"]:hover {
+            width: 70px;
+            height: 55px;
+            background-color: rgb(188, 124, 159);
+        }
+    </style>
+</head>
+<body>
+    <h1>Page1226課堂練習</h1>
+    <h2>漸變效果練習</h2>
+    <form action="https://www.pccu.edu.tw/" method="get">
+        <p>輸入資料:
+            <input type="text">
+            <button type="button" name="send">OK!</button>
+        </p>
+    </form>
+</body>
+</html>

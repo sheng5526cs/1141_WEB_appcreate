@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2025-11-28 JavaScript</title>
+	<link rel="stylesheet" href="MYstyle.css">
+	<style>
+		#game {
+			max-width: 400px;
+			margin: 32px auto;
+			padding: 24px;
+			background: #fffef8;
+			border-radius: 12px;
+			box-shadow: 0 2px 12px rgba(166,124,82,0.08);
+		}
+		#game input[type="number"] {
+			width: 100%;
+			padding: 8px 12px;
+			margin-bottom: 16px;
+			border: 1px solid #a67c52;
+			border-radius: 6px;
+			font-size: 1rem;
+			font-family: inherit;
+		}
+		#game button {
+			width: 100%;
+			margin-top: 8px;
+		}
+		#result {
+			margin-top: 16px;
+			font-weight: 700;
+		}
+	</style>
+</head>
+<body>
+	<h1>2025-11-28 因未保存舊檔故自行練習 : JavaScript互動練習</h1>
+	<h2>隨機數字猜謎小遊戲</h2>
+	<p>請在下方輸入 1~100 的數字，猜猜看電腦隨機產生的數字是多少！</p>
+	<div id="game">
+		<input type="number" id="guess" min="1" max="100" placeholder="請輸入1~100">
+		<button onclick="checkGuess()">猜！</button>
+		<p id="result"></p>
+		<button onclick="resetGame()">重新開始</button>
+	</div>
+	<script>
+		let answer = Math.floor(Math.random() * 100) + 1;
+		function checkGuess() {
+			const guess = parseInt(document.getElementById('guess').value);
+			const result = document.getElementById('result');
+			if (isNaN(guess) || guess < 1 || guess > 100) {
+				result.textContent = '請輸入 1~100 的數字！';
+				result.style.color = '#a67c52';
+				return;
+			}
+			if (guess === answer) {
+				result.textContent = '恭喜你猜對了！答案是 ' + answer;
+				result.style.color = 'green';
+			} else if (guess < answer) {
+				result.textContent = '太小了，再試一次！';
+				result.style.color = '#7c5a36';
+			} else {
+				result.textContent = '太大了，再試一次！';
+				result.style.color = '#7c5a36';
+			}
+		}
+		function resetGame() {
+			answer = Math.floor(Math.random() * 100) + 1;
+			document.getElementById('guess').value = '';
+			document.getElementById('result').textContent = '';
+		}
+	</script>
+</body>
+</html>
